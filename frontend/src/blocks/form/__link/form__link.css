@@ -1,0 +1,18 @@
+.form__link {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #FFFFFF;
+  text-decoration: unset;
+  transition: opacity .3s ease;
+}
+
+.form__link:hover {
+  opacity: .6;
+}
+
+.form__link:focus {
+  opacity: .6;
+}

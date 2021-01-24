@@ -1,0 +1,36 @@
+.popup__close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background-image: url(../../../images/edit-form/edit-form-close-button.svg);
+  background-position: center;
+  background-color: unset;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.popup__close-button:hover {
+  opacity: 0.6;
+}
+
+.popup__close-button:focus {
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__close-button {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 424px) {
+  .popup__close-button {
+    right: 40%;
+    transform: translateX(-40%);
+  }
+}

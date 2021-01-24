@@ -1,0 +1,13 @@
+.header__button {
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #A9A9A9;
+  background: unset;
+  border: unset;
+  cursor: pointer;
+  padding: 0;
+  margin: 9px 0;
+}

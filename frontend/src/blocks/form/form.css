@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .form {
+    padding-bottom: 20px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .form {
+    min-height: 200px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

@@ -1,0 +1,25 @@
+.header__menu-button {
+  border: unset;
+  padding: 0;
+  background: url(../../../images/header/menu-open-button.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: opacity .3s ease;
+}
+
+.header__menu-button:hover {
+  opacity: .6;
+}
+
+.header__menu-button:focus {
+  opacity: .6;
+}
+
+@media screen and (min-width: 768px) {
+  .header__menu-button {
+    visibility: hidden;
+  }
+}

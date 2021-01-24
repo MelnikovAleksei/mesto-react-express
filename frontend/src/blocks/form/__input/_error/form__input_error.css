@@ -1,0 +1,8 @@
+.form__input_error {
+  padding: 5.5px 5px 5.5px 5px;
+  border-bottom: 1px solid #FF0000;
+}
+
+.form__input_error:focus {
+  outline-color: #FF0000;
+}

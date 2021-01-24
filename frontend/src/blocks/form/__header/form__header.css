@@ -1,0 +1,23 @@
+.form__header {
+  width: 358px;
+  margin: 0 0 24px 0;
+  font-family: 'Inter', Arial, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #000000;
+}
+
+@media screen and (max-width: 767px) {
+  .form__header {
+    width: 200px;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .form__header {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+}
