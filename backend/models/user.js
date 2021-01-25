@@ -1,27 +1,50 @@
 const mongoose = require('mongoose');
+const validator = require('validator');
 
 const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    validate: {
+      validator(v) {
+        return validator.isEmail(v);
+      },
+      message: (props) => `${props.value} не является email`,
+    }
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 8,
+    validate: {
+      validator(v) {
+        return validator.isStrongPassword(v);
+      },
+      message: (props) => `${props.value} не является надежным паролем`,
+    }
+  },
   name: {
     type: String,
     minlength: 2,
     maxLength: 30,
-    required: true,
+    default: 'Жак-Ив Кусто'
   },
   about: {
     type: String,
     minlength: 2,
     maxLength: 30,
-    required: true,
+    default: 'Исследователь'
   },
   avatar: {
     type: String,
-    required: true,
     validate: {
       validator(v) {
-        return /https?:\/\/(www\.)?[-a-zA-Z0-9]{2,256}\.[a-z]{1,6}\b([-a-zA-Z0-9-._~:/?#\[\]@!$&'()*+,;=\S]*)/g.test(v);
+        return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g.test(v);
       },
       message: 'Ошибка валидации url адреса',
     },
+    default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'
   }
 })
 
