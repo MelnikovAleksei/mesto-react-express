@@ -32,13 +32,28 @@ const createCard = (req, res) => {
 
 const deleteCard = (req, res) => {
   const id = req.params.cardId;
-  Card.findByIdAndRemove(id)
+  Card.findById(id)
     .then((card) => {
       if (!card) {
         res.status(404).send({ message: "Нет карточки с таким id" });
         return;
       }
-      res.status(200).send(card);
+      if (card.owner.toString() !== id) {
+        res.status(401).send({ message: "Нет прав для удаления карточки" });
+      } else {
+        Card.findByIdAndDelete(id)
+          .then((card) => {
+            res.status(200).send(card);
+          })
+          .catch((err) => {
+            if (err.name === 'CastError') {
+              res.status(400).send({ message: `Передан некорректный id: ${err}` });
+              return;
+            }
+            res.status(500).send({ message: `Внутренняя ошибка сервера: ${err}` });
+          })
+      }
+
     })
     .catch((err) => {
       if (err.name === 'CastError') {
