@@ -1,7 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const bodyParser = require('body-parser');
+
+const auth = require('./middlewares/auth');
+
+const { createUser, login } = require('./controllers/users');
 
 const cardsRoutes = require('./routes/cards');
 const usersRoutes = require('./routes/users');
@@ -22,17 +28,13 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use((req, res, next) => {
-  req.user = {
-    _id: '5fdba7713713dd176fd708d2'
-  };
+app.post('/signin', login);
+app.post('/signup', createUser);
 
-  next();
-});
-
-app.use('/', cardsRoutes);
+app.use(auth);
 
 app.use('/', usersRoutes);
+app.use('/', cardsRoutes);
 
 app.all('*', notFountRouter);
 
