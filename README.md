@@ -1,6 +1,8 @@
 # react-mesto-api-full
 Репозиторий для приложения проекта `Mesto`, включающий фронтенд и бэкенд части приложения со следующими возможностями: авторизации и регистрации пользователей, операции с карточками и пользователями.
 
-публичный IP-адрес сервера: 178.154.224.250 
-домен сервера: https://api.melnikov.students.nomoredomains.icu 
-размещение фронтенда на сервере: https://melnikov.students.nomoredomains.icu 
+## Как найти сервер
+
+* публичный IP-адрес сервера: 178.154.224.250 
+* домен сервера: https://api.melnikov.students.nomoredomains.icu 
+* размещение фронтенда на сервере: https://melnikov.students.nomoredomains.icu 
