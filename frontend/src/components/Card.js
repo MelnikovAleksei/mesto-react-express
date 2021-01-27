@@ -5,8 +5,8 @@ function Card(props) {
 
   const currentUser = React.useContext(CurrentUserContext);
 
-  const isOwnCard = props.card.owner._id === currentUser._id;
-  const isLiked = props.card.likes.some(i => i._id === currentUser._id);
+  const isOwnCard = props.card.owner === currentUser._id;
+  const isLiked = props.card.likes.find(i => i === currentUser._id);
 
   const cardDeleteButtonClassName = isOwnCard ?
     'photos__delete-button photos__delete-button_visible'
@@ -22,7 +22,7 @@ function Card(props) {
   }
 
   function handleLikeClick() {
-    props.onCardLike(props.card);
+    props.onCardLike(props.card, isLiked);
   }
 
   function handleDeleteRequest() {
