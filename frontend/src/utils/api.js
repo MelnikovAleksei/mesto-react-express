@@ -116,7 +116,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'https://api.melnikov.students.nomoredomains.icu',
+  baseUrl: 'http://localhost:3000',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',

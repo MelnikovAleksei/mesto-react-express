@@ -5,6 +5,8 @@ require('dotenv').config();
 
 const bodyParser = require('body-parser');
 
+const cors = require('cors');
+
 const { errors, celebrate, Joi } = require('celebrate');
 
 const auth = require('./middlewares/auth');
@@ -20,6 +22,16 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
+const allowedCors = [
+  'https://melnikov.students.nomoredomains.icu',
+  'https://api.melnikov.students.nomoredomains.icu',
+  'http://localhost:3001',
+];
+
+app.use(cors({
+  origin: allowedCors,
+}));
+
 const { PORT = 3000 } = process.env;
 
 mongoose.connect('mongodb://localhost:27017/mestodb', {
@@ -28,7 +40,6 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useFindAndModify: false,
   useUnifiedTopology: true
 });
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
