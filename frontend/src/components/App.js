@@ -50,11 +50,13 @@ function App() {
 
   const [cards, setCards] = React.useState([]);
 
+  const [token, setToken] = React.useState('');
+
   const history = useHistory();
 
   function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.changeLikeCardStatus(card._id, isLiked)
+    api.changeLikeCardStatus(card._id, isLiked, token)
       .then(
         (newCard) => {
           const newCards = cards.map((currentCard) => currentCard._id === card._id ? newCard : currentCard)
@@ -68,7 +70,7 @@ function App() {
 
   function handleCardDelete(evt) {
     evt.preventDefault();
-    api.deleteCard(cardForDelete._id)
+    api.deleteCard(cardForDelete._id, token)
       .then(
         () => {
           const newCards = cards.filter((elem) => elem !== cardForDelete);
@@ -83,7 +85,8 @@ function App() {
 
   React.useEffect(() => {
     setIsLoadingInitialData(true);
-    api.getInitialData()
+    const token = localStorage.getItem('jwt');
+    api.getInitialData(token)
       .then(
         (data) => {
           const [userData, cardsData] = data;
@@ -101,7 +104,7 @@ function App() {
 
   function handleAddPlaceSubmit(data) {
     setIsLoadingAddPlaceSubmit(true);
-    api.postCard(data)
+    api.postCard(data, token)
       .then(
         (newCard) => {
           setCards([newCard, ...cards]);
@@ -118,7 +121,7 @@ function App() {
 
   function handleUpdateAvatar(data) {
     setIsLoadingAvatarUpdate(true);
-    api.setUserAvatar(data)
+    api.setUserAvatar(data, token)
       .then(
         (data) => {
           setCurrentUser(data);
@@ -135,7 +138,7 @@ function App() {
 
   function handleUpdateUser(data) {
     setIsLoadingSetUserInfo(true);
-    api.setUserInfo(data)
+    api.setUserInfo(data, token)
       .then(
         (data) => {
           setCurrentUser(data);
@@ -189,6 +192,7 @@ function App() {
   function handleSingOut() {
     setLoggedIn(false);
     localStorage.removeItem('jwt');
+    setToken('');
     history.push('/sign-in');
   }
 
@@ -213,6 +217,7 @@ function App() {
         (data) => {
           setLoggedIn(true);
           localStorage.setItem('jwt', data.token);
+          setToken(data.token);
           history.push('/');
         },
         (err) => {
@@ -229,6 +234,7 @@ function App() {
           (data) => {
             setAutorizationUserEmail(data.data.email);
             setLoggedIn(true);
+            setToken(token);
             history.push('/');
           },
           (err) => {
