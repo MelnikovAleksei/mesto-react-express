@@ -91,7 +91,7 @@ class Api {
   }
 
   getInitialData(token) {
-    return Promise.all([this.getUserInfo(token), this.getCards()]);
+    return Promise.all([this.getUserInfo(token), this.getCards(token)]);
   }
 
   getCards(token) {
