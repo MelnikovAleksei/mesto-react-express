@@ -16,6 +16,8 @@ const usersRoutes = require('./routes/users');
 
 const NotFoundError = require('./errors/not-found-error');
 
+const { requestLogger, errorLogger } = require('./middlewares/logger');
+
 const app = express();
 
 const { PORT = 3000 } = process.env;
@@ -30,6 +32,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(requestLogger);
 
 app.post(
   '/signin',
@@ -65,6 +69,8 @@ app.use('/', cardsRoutes);
 app.all('*', () => {
   throw new NotFoundError('Запрашиваемый ресурс не найден');
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 
