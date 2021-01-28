@@ -3,6 +3,7 @@ const User = require('../models/user');
 
 const NotFoundError = require('../errors/not-found-error');
 const BadRequestError = require('../errors/bad-request-error');
+const ForbiddenError = require('../errors/forbidden-error');
 
 const getCards = (req, res, next) => {
   Card.find({})
@@ -35,7 +36,7 @@ const deleteCard = (req, res, next) => {
         throw new NotFoundError('Нет карточки с таким id');
       }
       if (card.owner.toString() !== id) {
-        throw new BadRequestError('Нет прав для удаления карточки');
+        throw new ForbiddenError('Нет прав для удаления карточки');
       } else {
         Card.findByIdAndDelete(req.params.cardId)
           .then((card) => {
