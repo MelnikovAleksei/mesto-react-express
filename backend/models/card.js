@@ -5,7 +5,7 @@ const cardSchema = mongoose.Schema({
     type: String,
     minlength: 2,
     maxlegth: 30,
-    required: true
+    required: true,
   },
   link: {
     type: String,
@@ -15,12 +15,12 @@ const cardSchema = mongoose.Schema({
         return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\W\w]*)*\/?$/g.test(v);
       },
       message: 'Ошибка валидации url адреса',
-    }
+    },
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
-    required: true
+    required: true,
   },
   likes: [{
     type: mongoose.Schema.Types.ObjectId,
@@ -29,8 +29,8 @@ const cardSchema = mongoose.Schema({
   }],
   createdAt: {
     type: Date,
-    default: Date.now
-  }
-})
+    default: Date.now,
+  },
+});
 
 module.exports = mongoose.model('card', cardSchema);

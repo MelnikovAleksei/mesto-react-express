@@ -7,7 +7,7 @@ const {
   createCard,
   deleteCard,
   likeCard,
-  dislikeCard
+  dislikeCard,
 } = require('../controllers/cards');
 
 cardsRouter.get('/cards', getCards);
@@ -18,40 +18,40 @@ cardsRouter.post(
     body: Joi.object().keys({
       name: Joi.string().required().min(2).max(30),
       link: Joi.string().required()
-        .regex(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\W\w]*)*\/?$/)
-    })
+        .regex(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\W\w]*)*\/?$/),
+    }),
   }),
-  createCard
+  createCard,
 );
 
 cardsRouter.delete(
   '/cards/:cardId',
   celebrate({
     body: Joi.object().keys({
-      cardId: Joi.string().hex().length(24)
-    })
+      cardId: Joi.string().hex().length(24),
+    }),
   }),
-  deleteCard
+  deleteCard,
 );
 
 cardsRouter.put(
   '/cards/likes/:cardId',
   celebrate({
     body: Joi.object().keys({
-      cardId: Joi.string().hex().length(24)
-    })
+      cardId: Joi.string().hex().length(24),
+    }),
   }),
-  likeCard
+  likeCard,
 );
 
 cardsRouter.delete(
   '/cards/likes/:cardId',
   celebrate({
     body: Joi.object().keys({
-      cardId: Joi.string().hex().length(24)
-    })
+      cardId: Joi.string().hex().length(24),
+    }),
   }),
-  dislikeCard
+  dislikeCard,
 );
 
 module.exports = cardsRouter;

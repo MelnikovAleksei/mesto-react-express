@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         return validator.isEmail(v);
       },
       message: (props) => `${props.value} не является email`,
-    }
+    },
   },
   password: {
     type: String,
@@ -24,19 +24,19 @@ const userSchema = new mongoose.Schema({
       },
       message: (props) => `${props.value} не является надежным паролем`,
     },
-    select: false
+    select: false,
   },
   name: {
     type: String,
     minlength: 2,
     maxLength: 30,
-    default: 'Жак-Ив Кусто'
+    default: 'Жак-Ив Кусто',
   },
   about: {
     type: String,
     minlength: 2,
     maxLength: 30,
-    default: 'Исследователь'
+    default: 'Исследователь',
   },
   avatar: {
     type: String,
@@ -46,9 +46,9 @@ const userSchema = new mongoose.Schema({
       },
       message: 'Ошибка валидации url адреса',
     },
-    default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png'
-  }
-})
+    default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
+  },
+});
 
 userSchema.statics.findUserByCredentials = function (email, password) {
   return this.findOne({ email }).select('+password')
@@ -64,9 +64,8 @@ userSchema.statics.findUserByCredentials = function (email, password) {
           }
 
           return user;
-        })
-    })
-
-}
+        });
+    });
+};
 
 module.exports = mongoose.model('user', userSchema);

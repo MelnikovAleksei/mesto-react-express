@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "lint": "eslint --ignore-path .eslintignore ."
+    "lint": "eslint --ignore-path .eslintignore . --fix"
   },
   "author": "Melnikov Aleksei",
   "license": "ISC",
@@ -15,7 +15,7 @@
   },
   "homepage": "https://github.com/MelnikovAleksei/express-mesto#readme",
   "devDependencies": {
-    "eslint": "^7.2.0",
+    "eslint": "^7.18.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.6"

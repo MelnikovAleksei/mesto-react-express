@@ -38,7 +38,7 @@ mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
   useCreateIndex: true,
   useFindAndModify: false,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 app.use(bodyParser.json());
@@ -60,7 +60,7 @@ app.post(
       password: Joi.string().required().min(8).max(30),
     }),
   }),
-  login
+  login,
 );
 app.post(
   '/signup',
@@ -72,10 +72,10 @@ app.post(
       name: Joi.string().min(2).max(30),
       about: Joi.string().min(2).max(30),
       avatar: Joi.string()
-        .regex(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/)
+        .regex(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/),
     }),
   }),
-  createUser
+  createUser,
 );
 
 app.use(auth);

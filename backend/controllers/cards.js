@@ -9,7 +9,7 @@ const getCards = (req, res, next) => {
     .then((cards) => {
       res.status(200).send(cards);
     })
-    .catch(next)
+    .catch(next);
 };
 
 const createCard = (req, res, next) => {
@@ -25,7 +25,7 @@ const createCard = (req, res, next) => {
       }
     })
     .catch(next);
-}
+};
 
 const deleteCard = (req, res, next) => {
   const id = req.user._id;
@@ -43,20 +43,19 @@ const deleteCard = (req, res, next) => {
           })
           .catch(next);
       }
-
     })
     .catch(next);
-}
+};
 
 const likeCard = (req, res, next) => {
-  const cardId = req.params.cardId;
+  const { cardId } = req.params;
   User.findById(req.user._id)
     .then((user) => {
       Card.findByIdAndUpdate(
-          { _id: cardId },
-          { $push: { likes: user } },
-          { new: true }
-        )
+        { _id: cardId },
+        { $push: { likes: user } },
+        { new: true },
+      )
         .then((card) => {
           res.status(200).send(card);
         })
@@ -66,14 +65,14 @@ const likeCard = (req, res, next) => {
 };
 
 const dislikeCard = (req, res, next) => {
-  const cardId = req.params.cardId;
+  const { cardId } = req.params;
   User.findById(req.user._id)
     .then((user) => {
       Card
         .findByIdAndUpdate(
           { _id: cardId },
           { $pull: { likes: user._id } },
-          { new: true }
+          { new: true },
         )
         .then((card) => {
           res.status(200).send(card);
@@ -88,5 +87,5 @@ module.exports = {
   createCard,
   deleteCard,
   likeCard,
-  dislikeCard
-}
+  dislikeCard,
+};

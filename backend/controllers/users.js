@@ -1,7 +1,6 @@
-const User = require('../models/user');
-
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const User = require('../models/user');
 
 const NotFoundError = require('../errors/not-found-error');
 const BadRequestError = require('../errors/bad-request-error');
@@ -17,10 +16,10 @@ const getCurrentUser = (req, res, next) => {
       res.status(200).send(user);
     })
     .catch((err) => {
-      res.send(err)
+      res.send(err);
     })
     .catch(next);
-}
+};
 
 const updateCurrentUser = (req, res, next) => {
   const id = req.user._id;
@@ -30,7 +29,7 @@ const updateCurrentUser = (req, res, next) => {
   User.findOneAndUpdate(
     { _id: id },
     { name: newName, about: newAbout },
-    { runValidators: true, new: true }
+    { runValidators: true, new: true },
   )
     .then((user) => {
       res.status(200).send(user);
@@ -41,7 +40,7 @@ const updateCurrentUser = (req, res, next) => {
       }
     })
     .catch(next);
-}
+};
 
 const updateAvatar = (req, res, next) => {
   const id = req.user._id;
@@ -67,7 +66,7 @@ const getUsers = (req, res, next) => {
     .then((users) => {
       res.status(200).send(users);
     })
-    .catch(next)
+    .catch(next);
 };
 
 const getUserById = (req, res, next) => {
@@ -89,13 +88,12 @@ const getUserById = (req, res, next) => {
 const createUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10)
     .then((hash) => User.create({
-        email: req.body.email,
-        password: hash,
-        name: req.body.name,
-        about: req.body.about,
-        avatar: req.body.avatar
-      })
-    )
+      email: req.body.email,
+      password: hash,
+      name: req.body.name,
+      about: req.body.about,
+      avatar: req.body.avatar,
+    }))
     .then((user) => {
       res.status(200).send(user);
     })
@@ -118,7 +116,7 @@ const login = (req, res, next) => {
       const token = jwt.sign(
         { _id: user._id },
         NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
-        { expiresIn: '7d' }
+        { expiresIn: '7d' },
       );
 
       res.send({ token });
@@ -127,7 +125,7 @@ const login = (req, res, next) => {
       throw new NotAuthError(err.message);
     })
     .catch(next);
-}
+};
 
 module.exports = {
   getUsers,
@@ -136,5 +134,5 @@ module.exports = {
   login,
   getCurrentUser,
   updateCurrentUser,
-  updateAvatar
+  updateAvatar,
 };
