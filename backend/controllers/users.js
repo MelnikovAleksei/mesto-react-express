@@ -5,6 +5,7 @@ const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-error');
 const BadRequestError = require('../errors/bad-request-error');
 const NotAuthError = require('../errors/not-auth-error');
+const ConflictError = require('../errors/conflict-error');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -108,7 +109,7 @@ const createUser = (req, res, next) => {
         throw new BadRequestError(err.message);
       }
       if (err.code === 11000) {
-        throw new BadRequestError(`Пользователь с таким email: ${req.body.email} существует`);
+        throw new ConflictError(`Пользователь с таким email: ${req.body.email} существует`);
       }
     })
     .catch(next);
