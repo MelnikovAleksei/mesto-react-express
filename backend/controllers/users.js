@@ -101,7 +101,7 @@ const createUser = (req, res, next) => {
         about: user.about,
         avatar: user.avatar,
         _id: user._id,
-        email: user.email
+        email: user.email,
       });
     })
     .catch((err) => {

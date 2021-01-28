@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     validate: {
       validator(v) {
-        return /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\W\w]*)*\/?$/g.test(v);
+        return /^(https?:\/\/)?([\da-z.-]+).([a-z.]{2,6})([/\w.-]*)*\/?$/g.test(v);
       },
       message: 'Ошибка валидации url адреса',
     },
@@ -50,7 +50,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-userSchema.statics.findUserByCredentials = function (email, password) {
+userSchema.statics.findUserByCredentials = function fn(email, password) {
   return this.findOne({ email }).select('+password')
     .then((user) => {
       if (!user) {
