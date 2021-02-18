@@ -9,7 +9,7 @@ REST API для проектной работы ["Mesto"](https://github.com/Mel
 * Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto); 
 * Ссылка на [репозиторий с версией проектной работы на Reactjs](https://github.com/MelnikovAleksei/react-mesto-api-full/tree/main/frontend); 
 
-[Деплой фронтенда](https://melnikov.students.nomoredomains.icu/sign-in) 
+[Деплой фронтенда](https://melnikov.students.nomoredomains.icu) 
 
 ## Схемы и модели ресурсов API
 
