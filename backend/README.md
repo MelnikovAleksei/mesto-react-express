@@ -73,13 +73,12 @@ DELETE | `/cards/:cardId/likes` | убрать лайк с карточки
 
 Клонировать репозиторий:
 
-* `git clone https://github.com/MelnikovAleksei/express-mesto.git`
+* `git clone https://github.com/MelnikovAleksei/react-mesto-api-full.git`
 
-В директории проекта запустить приложение в режиме разработки:
+В директории **/backend** установить зависимости и запустить приложение в режиме разработки:
 
 * `npm install` - устанавливает зависимости; 
-* `npm run dev` - запускает сервер; 
-* `npm run start` - запускает сервер с hot-reload;
+* `npm run dev` - запускает сервер в режиме разработки;
 
 ## Чеклисты проектной работы:
 
