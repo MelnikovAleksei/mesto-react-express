@@ -2,13 +2,11 @@
 
 ## Создана в рамках учебы в [Яндекс.Практикум](https://praktikum.yandex.ru/) на курсе ["Веб-разработчик"](https://praktikum.yandex.ru/web/).
 
-*Read this in other languages:* [EN](https://github.com/MelnikovAleksei/react-mesto-auth/blob/main/README.EN.md)
-
 ## Описание:
 
-"Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11 спринтов курса. Данная работа переведена на фреймворк React. Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto)
+"Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11, 14-15 спринтов курса. Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto)
 
-[Проектная работа на GitHub Pages](https://melnikovaleksei.github.io/react-mesto-auth)
+[Деплой фронтенда](https://melnikov.students.nomoredomains.icu/sign-in)
 
 ## Функционал:
 
@@ -39,27 +37,16 @@
 Клонировать репозиторий:
 
 `
-git clone https://github.com/MelnikovAleksei/react-mesto-auth.git
+git clone https://github.com/MelnikovAleksei/react-mesto-api-full.git
 `
 
-В директории проекта запустить приложение в режиме разработки:
+Перейти в директорию **/frontend**, установить зависимости и запустить приложение в режиме разработки:
 
 ```
+cd frontend
 npm install
-npm start
+npm run dev
 ```
-
-## Будущая доработка проекта будет включать в себя:
-
-* [создание сервера на Nodejs](https://github.com/MelnikovAleksei/express-mesto)
-
-## Языки:
-
-* JavaScript
-
-## Библиотеки:
-
-* Reactjs
 
 ## Макеты проектной работы в Figma:
 
@@ -82,3 +69,4 @@ npm start
 * [Чеклист 11](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-11/index.html)
 
 * [Чеклист 14](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-14/index.html)
+* [Чеклист 15](https://code.s3.yandex.net/web-developer/checklists/new-program/checklist-15/index.html)
