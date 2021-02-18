@@ -1,18 +1,15 @@
-# Проектная работа REST API для проекта ["Mesto"](https://github.com/MelnikovAleksei/mesto-react)
+# Проектная работа REST API для проекта ["Mesto"](https://github.com/MelnikovAleksei/react-mesto-api-full/tree/main/frontend)
 
 ## Создана в рамках учебы в [Яндекс.Практикум](https://praktikum.yandex.ru/) на курсе ["Веб-разработчик"](https://praktikum.yandex.ru/web/).
 
 ## Описание
 
-REST API для проектной работы ["Mesto"](https://github.com/MelnikovAleksei/mesto-react), связанное с базой данных MongoDB. При запуске приложения оно подключается к серверу mongo по адресу: `mongodb://localhost:27017/mestodb`.
-В приложении описана схема пользователя и схема карточки. Некоторые поля схем проверяются регулярным выражением. 
-
-"Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11 спринтов курса. 
+REST API для проектной работы ["Mesto"](https://github.com/MelnikovAleksei/react-mesto-api-full/tree/main/frontend). "Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11, 14 спринтов курса. 
 
 * Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto); 
-* Ссылка на [репозиторий с версией проектной работы на Reactjs](https://github.com/MelnikovAleksei/mesto-react); 
+* Ссылка на [репозиторий с версией проектной работы на Reactjs](https://github.com/MelnikovAleksei/react-mesto-api-full/tree/main/frontend); 
 
-[Проектная работа "Mesto-Reactjs" на GitHub Pages](https://melnikovaleksei.github.io/mesto-react/index.html) 
+[Деплой фронтенда](https://melnikov.students.nomoredomains.icu/sign-in) 
 
 ## Схемы и модели ресурсов API
 
