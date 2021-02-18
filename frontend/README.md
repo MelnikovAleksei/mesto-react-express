@@ -6,7 +6,7 @@
 
 "Mesto" - это интерактивная страница, где пользователи могут делиться фотографиями. Она создана в рамках прохождения 4-11, 14-15 спринтов курса. Ссылка на [репозиторий с версией проектной работы на Pure JS](https://github.com/MelnikovAleksei/mesto)
 
-[Деплой фронтенда](https://melnikov.students.nomoredomains.icu/sign-in)
+[Деплой фронтенда](https://melnikov.students.nomoredomains.icu)
 
 ## Функционал:
 
